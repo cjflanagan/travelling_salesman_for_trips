@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+    <div id="Intro">
+      </br></br>
+      Welcome to the tour planning using the
+      <a href="https://en.wikipedia.org/wiki/Travelling_salesman_problem">
+        travelling salesman problem (TSP).
+      </a>
+      </br></br>
+      <strong> Intro </strong>
+      </br>
+      The TSP is famous NP-hard problem to which scholars have dedicated their
+      entire careers to focus on. While there is no provably optimal solution,
+      there are a number of solvers which get extremely close to what the optimal.
+
+      In this tool I was trying to solve a specific problem I encouterd recently,
+      and one which I assume more people encounter...
+
+      </br></br>
+      <strong> Problem being solved </strong>
+      </br>
+      While planning a trip to Europe I had seven cities I wanted to visit
+      but I was unsure what the most efficient order I should visit them in.
+      </br>
+      This is the tool I wish I had to help me plan that trip and
+      could not find.
+
+      </br></br>
+      <strong> Tools and resources used </strong>
+      </br>
+      <ul>
+        <li>
+          <a href="https://developers.google.com/optimization/">Google OR Tools library</a>
+          - Great optimization suite which contains
+          linear, constraint and integer optimization libraries.
+        </li>
+        <li>
+           <a href="https://developers.google.com/optimization/">Google Maps Api</a>
+           - Used to render the map, take input in the form of markers and render the optimal
+           tour on top of.
+        </li>
+        </ul>
+
+      <strong> Awesome links and sources on the topic of TSP</strong>
+    </br>
+
+      <ul>
+        <li>
+        <img id="book" src="https://images-na.ssl-images-amazon.com/images/I/51BMOf3gMjL._SX331_BO1,204,203,200_.jpg">
+        <a href="https://press.princeton.edu/titles/9531.html">The Traveling Salesman Problem</a>
+        - Excellent book on the topic a professor who has dedicated his life to the topic.
+      </li>
+      <li>
+        <iframe width="400" height="200" src="https://www.youtube.com/embed/q8nQTNvCrjE?start=2" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        - Presentation on "Information, Computation, Optimization..." with a particular focus on the TSP
+      </li>
+      </ul>
+
+      <style>
+        #book {
+          width: 100px;
+          height: 100%;
+        }
+      </style>
+
+      <script>
+        function initMap(){
+          // empty
+        }
+      </script>
+{% endblock %}

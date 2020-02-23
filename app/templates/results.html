@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+    <div id="floating-panel-results">
+      <input onclick="reset()" type=button value="Reset">
+    </div>
+
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var points = JSON.parse('{{ points|safe }}');
+        console.log(points)
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: parseInt(points[0].lat, 10), lng: parseInt(points[0].lng, 10)},
+          zoom: 4,
+          mapTypeId: 'terrain'
+        });
+
+
+        var lineSymbol = {
+          path: google.maps.SymbolPath.FORWARD_OPEN_ARROW,
+          scale: 6,
+          strokeColor: '#393'
+        };
+
+
+        // Draw marker for each long and lat pair passed. Give it a custom
+        // label based on its order which signifies the order that the tour
+        // should be completed in.
+        var latlng_array = [];
+        for (var i = 0; i < points.length; i++) {
+            latlng_array.push({lat: parseFloat(points[i].lat), lng: parseFloat(points[i].lng)})
+            marker = new google.maps.Marker({
+              position: new google.maps.LatLng(points[i].lat, points[i].lng),
+              map: map,
+              label: i.toString()
+            });
+          }
+        console.log(latlng_array)
+
+        // Draw lines between markers
+        var line = new google.maps.Polyline({
+          path: latlng_array,
+          icons: [{
+            icon: lineSymbol,
+            offset: '100%'
+          }],
+          map: map
+        });
+
+        animateCircle(line);
+      }
+
+
+      // Animatation that moves between points.
+      function animateCircle(line) {
+          var count = 0;
+          window.setInterval(function() {
+            count = (count + 1) % 200;
+
+            var icons = line.get('icons');
+            icons[0].offset = (count / 2) + '%';
+            line.set('icons', icons);
+        }, 20);
+      }
+
+      // Clears coordinates and redirects to index
+      function reset() {
+        $.ajax({
+           type : "POST",
+           url : "{{ url_for('clearcoords') }}",
+           success: function(result) {
+               console.log(result);
+               window.location.replace("{{ url_for('index') }}");
+           }
+        })
+      }
+      </script>
+{% endblock %}
