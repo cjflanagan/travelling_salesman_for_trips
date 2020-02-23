@@ -4,7 +4,7 @@ import pandas as pd
 
 def _get_request_string(source, dest, mode):
     """Constructing api call to Google Maps API."""
-    api_key = "AIzaSyD0W2R__E7smCV5oeqQE00orlJDHhGpEAs"
+    api_key = "<INSERT_API_KEY_HERE"
     url = "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&"
     request = (
         url
