@@ -1,9 +1,8 @@
 # Travelling Salesman Tour planning tool.
-Charlie Flanagan
 
-![alt text](https://github.com/cjflanagan/final-project-cjflanagan/blob/master/front.jpg)
+![alt text](https://github.com/cjflanagan/travelling_salesman_for_trips/blob/master/front.jpg)
 
-![alt text](https://github.com/cjflanagan/final-project-cjflanagan/blob/master/result.jpg)
+![alt text](https://github.com/cjflanagan/travelling_salesman_for_trips/blob/master/result.jpg)
 
 **Introduction**
 
@@ -47,4 +46,4 @@ This is the tool I wish I had to help me plan that trip and could not find.
 - **app/static/index.js**
     - javascript code for the webapp. Note: there is still some javascript in the html files - this is due to this code needing to call the python functions and when placed in index.js it did not work.
 
-![alt text](https://github.com/cjflanagan/final-project-cjflanagan/blob/master/about.jpg)
+![alt text](https://github.com/cjflanagan/travelling_salesman_for_trips/blob/master/about.jpg)
